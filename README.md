@@ -1,79 +1,131 @@
-# Expense Tracker Backend
+# Expense Tracker Backend API
 
-A secure and scalable backend application for managing personal expenses. The application provides user authentication and expense management features through RESTful APIs built with Node.js, Express.js, and MongoDB.
+A secure and scalable RESTful backend application for managing personal expenses. This project enables users to securely register, authenticate, and manage their expenses using JWT authentication while following MVC architecture and backend development best practices.
+
+---
 
 ## Features
 
 - User Registration
 - User Login Authentication
-- Secure Password Hashing using bcrypt
-- Session-Based Authentication
+- JWT-Based Authentication
+- Password Hashing using bcrypt
+- HTTP-Only Cookie Authentication
+- Protected Routes using JWT Middleware
 - Expense Management (CRUD Operations)
-- Protected Routes
 - Input Validation
 - MongoDB Database Integration
-- RESTful API Architecture
+- RESTful API Development
 - MVC Architecture
+- Error Handling
+
+---
 
 ## Tech Stack
 
-### Backend
-- Node.js
-- Express.js
+| Category | Technologies |
+|----------|--------------|
+| Backend | Node.js, Express.js |
+| Database | MongoDB, Mongoose |
+| Authentication | JWT (JSON Web Token) |
+| Security | bcrypt, HTTP-Only Cookies |
+| API Testing | Postman, Thunder Client |
+| Version Control | Git, GitHub |
 
-### Database
-- MongoDB
-- Mongoose
-
-### Security
-- bcrypt
-
-### Tools
-- Postman
-- Git
-- GitHub
+---
 
 ## Project Structure
 
 ```text
-expense-tracker-backend
+expense-tracker-backend-api
 │
-├── controllers
-├── models
-├── routes
-├── middleware
-├── config
-├── server.js
+├── controller/
+├── db/
+├── middleware/
+├── model/
+├── router/
+├── screenshot/
+├── app.js
 ├── package.json
+├── package-lock.json
+├── .gitignore
 └── README.md
 ```
 
+---
+
+## Architecture
+
+The project follows the MVC (Model-View-Controller) architecture.
+
+- **Models** – Define MongoDB schemas using Mongoose.
+- **Controllers** – Handle business logic and request processing.
+- **Routes** – Define REST API endpoints.
+- **Middleware** – Verify JWT tokens and protect authenticated routes.
+- **Database** – MongoDB with Mongoose ODM.
+
+---
+
+## Authentication & Security
+
+The application implements secure authentication using **JWT (JSON Web Tokens)**.
+
+### Security Features
+
+- Password hashing using bcrypt
+- JWT token generation
+- HTTP-Only Cookie Storage
+- Protected API Routes
+- Secure Logout
+- Token Expiration (1 Day)
+- Authentication Middleware
+
+### Authentication Flow
+
+1. User registers with username, email, name, and password.
+2. Password is hashed using bcrypt before storing in MongoDB.
+3. User logs in with valid credentials.
+4. Server verifies the password using bcrypt.
+5. JWT token is generated.
+6. Token is stored in an HTTP-only cookie.
+7. Protected routes validate the JWT before processing requests.
+8. Logout clears the authentication cookie.
+
+---
+
 ## API Endpoints
 
-### Authentication
+### Authentication APIs
 
 | Method | Endpoint | Description |
-|----------|----------|----------|
-| POST | /api/auth/register | Register User |
-| POST | /api/auth/login | Login User |
-| POST | /api/auth/logout | Logout User |
+|----------|----------|-------------|
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | Authenticate user and generate JWT |
+| POST | `/api/auth/logout` | Logout user |
+| GET | `/api/auth/check-auth` | Verify authenticated user |
 
-### Expenses
+---
+
+### Expense APIs
 
 | Method | Endpoint | Description |
-|----------|----------|----------|
-| GET | /api/expenses | Get All Expenses |
-| POST | /api/expenses | Add Expense |
-| PUT | /api/expenses/:id | Update Expense |
-| DELETE | /api/expenses/:id | Delete Expense |
+|----------|----------|-------------|
+| GET | `/api/expenses` | Retrieve all expenses |
+| POST | `/api/expenses` | Create a new expense |
+| PUT | `/api/expenses/:id` | Update an existing expense |
+| DELETE | `/api/expenses/:id` | Delete an expense |
+
+---
 
 ## Installation
 
 ### Clone Repository
 
 ```bash
-git clone https://github.com/AQUIB-IRFANI/expense-tracker-backend.git
+git clone https://github.com/AQUIB-IRFANI/Expense-Tracker-Backend-API.git
 ```
+
+---
 
 ### Install Dependencies
 
@@ -81,45 +133,104 @@ git clone https://github.com/AQUIB-IRFANI/expense-tracker-backend.git
 npm install
 ```
 
-### Create Environment Variables
+---
 
-Create a .env file
+### Environment Variables
+
+Create a `.env` file in the project root.
 
 ```env
 PORT=5000
+
 MONGODB_URI=your_mongodb_connection_string
-SESSION_SECRET=your_secret_key
+
+JWT_SECRET=your_secret_key
+
+NODE_ENV=development
 ```
 
-### Start Application
+---
+
+### Start the Application
 
 ```bash
 npm start
 ```
 
+---
+
 ## API Testing
 
-The APIs can be tested using:
+The REST APIs were tested using:
 
 - Postman
 - Thunder Client
 
+---
+
+## Screenshots
+
+### User Registration
+
+> Add `register-api.png`
+
+### User Login
+
+> Add `login-api.png`
+
+### Authentication Verification
+
+> Add `check-auth-api.png`
+
+### Create Expense
+
+> Add `create-expense-api.png`
+
+### Get Expenses
+
+> Add `get-expenses-api.png`
+
+---
+
 ## Key Learning Outcomes
 
+Through this project, I gained practical experience in:
+
 - Backend Development with Node.js and Express.js
-- REST API Design
-- Authentication and Authorization
+- RESTful API Design
+- JWT Authentication & Authorization
+- Password Security using bcrypt
+- HTTP-Only Cookie Authentication
 - MongoDB Data Modeling
+- Middleware Development
 - MVC Architecture
+- Error Handling
+- API Testing using Postman
 - Git Version Control
-- Debugging and Testing
+- Debugging and Refactoring
+
+---
+
+## Future Enhancements
+
+- Expense Categories
+- Monthly Expense Analytics
+- Budget Planning
+- Role-Based Authorization
+- Docker Support
+- Unit & Integration Testing
+- Swagger API Documentation
+- Email Notifications
+- Expense Reports
+
+---
 
 ## Author
 
-Aquib Muzzammil Irfani
+**Aquib Muzzammil Irfani**
 
-GitHub:
-https://github.com/AQUIB-IRFANI
+📧 Email: maquib1710@gmail.com
 
-LinkedIn:
-https://linkedin.com/in/aquib-irfani-422746253
+🔗 LinkedIn: https://linkedin.com/in/aquib-irfani-422746253
+
+💻 GitHub: https://github.com/AQUIB-IRFANI

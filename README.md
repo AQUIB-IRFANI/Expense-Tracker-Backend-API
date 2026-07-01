@@ -172,23 +172,19 @@ The REST APIs were tested using:
 
 ### User Registration
 
-> Add `register-api.png`
+![Register API](./screenshot/register-api.png)
 
 ### User Login
 
-> Add `login-api.png`
-
-### Authentication Verification
-
-> Add `check-auth-api.png`
+![Login API](./screenshot/login-api.png)
 
 ### Create Expense
 
-> Add `create-expense-api.png`
+![Create Expense API](./screenshot/create-expense-api.png)
 
 ### Get Expenses
 
-> Add `get-expenses-api.png`
+![Get Expenses API](./screenshot/get-expenses-api.png)
 
 ---
 
